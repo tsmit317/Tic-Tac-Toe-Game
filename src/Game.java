@@ -29,14 +29,23 @@ public class Game
         winner = false;
         draw = false;
         tictactoe = new Board( );
-        
+        int choiceholder;
         // Prompts user to pick heads or tails.
         // Used to determine playing order.
         System.out.println("Pick (h)eads or (t)ails");
         choice = in.next( ).charAt(0);
+        
+        if(choice == 'h'){
+        	choiceholder = 0;
+        }
+        else{
+        	choiceholder = 1;
+        }
+        
         toss = rand.nextInt(2);
-        if(toss == 1 && choice == 'h')
+        if(toss == choiceholder)
         {
+        	
         	humanMarker = 'X';
         	computerMarker = 'O';
         }

@@ -17,8 +17,13 @@ public class Board
    {
        gameBoard = new char[3][3];
        for(int row = 0; row < 3; row++)
-        for(int col = 0; col < 3; col++)
-            gameBoard[row][col] = '-';
+       {
+	        for(int col = 0; col < 3; col++)
+	        {
+	            gameBoard[row][col] = '-';
+	        }
+       }
+       
    }
    
    /**
@@ -30,7 +35,6 @@ public class Board
     */
    public boolean checkForWin (char marker, char[ ][ ] board)
    {
-	   System.out.println("In CFW2P");
        boolean isAWinner = false;
        int consecutive;
        int revConsecutive;
@@ -133,13 +137,11 @@ public class Board
        int consecutive;
        int row;
        int col;
-       System.out.println("IN check1P");
+       
        consecutive = 0;
        //Check each Row
        for( row = 0; row < 3 && consecutive != 3; row++)
        {
-          	System.out.println("check row");
-
          consecutive = 0;
          for(col = 0; col < 3; col ++)
          {
@@ -155,8 +157,6 @@ public class Board
        // Check each column
        if(!isAWinner)
        {
-          	System.out.println("check col");
-
           for(col = 0; col < 3 && consecutive != 3; col++)
            {
              consecutive = 0;
@@ -172,13 +172,11 @@ public class Board
         	  isAWinner = true;
           }
        }
+       
        //Check Diagonal
        if(!isAWinner)
        {
-       	System.out.println("check diag");
-
-       		if((gameBoard[0][0] == marker && gameBoard[1][1] == marker && gameBoard[2][2] == marker)
-       		  ||(gameBoard[2][0] == marker && gameBoard[1][1] == marker && gameBoard[0][2] == marker))
+       		if((gameBoard[0][0] == marker && gameBoard[1][1] == marker && gameBoard[2][2] == marker) || (gameBoard[2][0] == marker && gameBoard[1][1] == marker && gameBoard[0][2] == marker))
        		{
        		   isAWinner = true;
        		}
@@ -281,6 +279,7 @@ public class Board
      /**
       * copyTheBoard - Method copies global game board array to local array. 
       * Used when checking computers choice.        
+      * 
       * @return array - Copied 2D array game board. 
       */
      private char[ ][ ] copyTheBoard( )
@@ -298,7 +297,8 @@ public class Board
      
     /**
      * isDraw - Method checks the game board to see if the game is a draw. 
-     * Very simple, just checks if there are any free spaces.          
+     * Very simple, just checks if there are any free spaces. 
+     *          
      * @return boolean - true if there's a draw 
      */
     public boolean isADraw()
@@ -314,12 +314,12 @@ public class Board
     			}
     		}
     	}
-    	
     	return isDraw;
     }
      
     /**
      * toString - Method prints a visual of the game board.
+     * 
      * @return String - Visual representation of a TicTacToe board
      */
      public String toString( )
